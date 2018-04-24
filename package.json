@@ -1,0 +1,32 @@
+{
+  "name": "slack-my-amazon",
+  "version": "1.0.0",
+  "description": "Slack integration for AWS service event notifications",
+  "main": "handler.js",
+  "scripts": {
+    "test": "sls invoke test",
+    "lint": "./node_modules/.bin/eslint . --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trespass-tech/slack-my-amazon.git"
+  },
+  "keywords": [
+    "aws",
+    "slack",
+    "aws-codepipeline",
+    "aws-codebuild",
+    "aws-cloudwatch"
+  ],
+  "author": "Dmitry Livchak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/trespass-tech/slack-my-amazon/issues"
+  },
+  "homepage": "https://github.com/trespass-tech/slack-my-amazon#readme",
+  "devDependencies": {
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.7.0"
+  }
+}
