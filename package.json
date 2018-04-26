@@ -5,7 +5,9 @@
   "main": "handler.js",
   "scripts": {
     "test": "sls invoke test",
-    "lint": "./node_modules/.bin/eslint . --fix"
+    "lint": "./node_modules/.bin/eslint . --fix",
+    "deploy": "npx serverless deploy",
+    "remove": "npx serverless remove"
   },
   "repository": {
     "type": "git",
