@@ -1,7 +1,7 @@
 const mochaPlugin = require('serverless-mocha-plugin');
 mochaPlugin.chai.use(require('chai-string'));
 
-const expect = mochaPlugin.chai.expect;
+const { expect } = mochaPlugin.chai;
 const wrapped = mochaPlugin.getWrapper('code-build', '/handlers/code-build.js', 'notify');
 
 describe('code-build', () => {
