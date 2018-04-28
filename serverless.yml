@@ -5,8 +5,8 @@ provider:
 plugins:
   - serverless-mocha-plugin
 functions:
-  hello:
-    handler: handler.hello
+  code-build:
+    handler: handlers/code-build.notify
     events:
       - cloudwatchEvent:
           event:
