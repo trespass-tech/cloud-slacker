@@ -7,13 +7,16 @@ plugins:
 functions:
   hello:
     handler: handler.hello
-#    events:
-#      - cloudwatchEvent:
-#          event:
-#            source:
-#              - "aws.ec2"
-#            detail-type:
-#              - "EC2 Instance State-change Notification"
-#            detail:
-#              state:
-#                - pending
+    events:
+      - cloudwatchEvent:
+          event:
+            source:
+              - "aws.codebuild"
+            detail-type:
+              - "CodeBuild Build State Change"
+            detail:
+              build-status:
+                - 'IN_PROGRESS'
+                - 'SUCCEEDED'
+                - 'FAILED'
+                - 'STOPPED'

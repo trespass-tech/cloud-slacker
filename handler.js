@@ -9,6 +9,7 @@ module.exports.hello = (event, context, callback) => {
     }),
   };
 
+  console.log(event);
   callback(null, response);
 
   // Use this code if you don't use the http event with the LAMBDA-PROXY integration
