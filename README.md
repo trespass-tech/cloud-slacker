@@ -4,4 +4,6 @@ One click serverless  deployment to get your AWS service events as Slack notific
 
 ## Integrates Slack with:
 - AWS CodeCommit
-- AWS CodeBuild
+
+## Work in progress
+**Contributors welcome!**
