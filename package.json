@@ -4,7 +4,7 @@
   "description": "Slack integration for AWS service event notifications",
   "main": "handler.js",
   "scripts": {
-    "test": "sls invoke test",
+    "test": "npx serverless invoke test",
     "lint": "./node_modules/.bin/eslint . --fix",
     "deploy": "npx serverless deploy",
     "remove": "npx serverless remove"
