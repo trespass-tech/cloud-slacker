@@ -7,6 +7,8 @@ plugins:
 functions:
   code-build:
     handler: handlers/code-build.notify
+    environment:
+      slack_url: ${opt:slack_url}
     events:
       - cloudwatchEvent:
           event:
