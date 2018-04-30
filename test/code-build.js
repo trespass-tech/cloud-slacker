@@ -24,6 +24,7 @@ describe('code-build', () => {
       slack.done();
     });
   });
+
   it('Sends build status in the subject line', () => {
     nock.cleanAll();
     const slack = nock(process.env.slack_url).persist()
@@ -40,6 +41,24 @@ describe('code-build', () => {
       slack.done();
     });
   });
+
+  it('Colours "green" when build successful ', () => {
+    nock.cleanAll();
+    const slack = nock(process.env.slack_url).persist()
+      .post(
+        '',
+        body => body.attachments[0].color === 'good',
+      )
+      .reply(200);
+    wrapped.run({
+      detail: {
+        'build-status': 'SUCCESSFUL',
+      },
+    }).then(() => {
+      slack.done();
+    });
+  });
+
   it('Responds with success', () => {
     nock.cleanAll();
     nock(process.env.slack_url).persist()
