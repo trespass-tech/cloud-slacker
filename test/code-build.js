@@ -19,13 +19,8 @@ describe('code-build', () => {
       .post('', body => body).reply(200);
     wrapped.run({
       detail: {
+        'build-id': 'build-1',
         'build-status': 'status-1',
-        'project-name': 'project-1',
-        'additional-information': {
-          logs: {
-            'stream-name': 'build-1',
-          },
-        },
       },
     }).then((response) => {
       expect(response.message).to.containIgnoreCase('success');
@@ -37,13 +32,8 @@ describe('code-build', () => {
       .post('', body => body).reply(200);
     wrapped.run({
       detail: {
+        'build-id': 'build-1',
         'build-status': 'status-1',
-        'project-name': 'project-1',
-        'additional-information': {
-          logs: {
-            'stream-name': 'build-1',
-          },
-        },
       },
     }).then(() => {
       slack.done();
@@ -60,13 +50,8 @@ describe('code-build', () => {
       .reply(200);
     wrapped.run({
       detail: {
+        'build-id': 'build-1',
         'build-status': 'status-1',
-        'project-name': 'project-1',
-        'additional-information': {
-          logs: {
-            'stream-name': 'build-1',
-          },
-        },
       },
     }).then(() => {
       slack.done();
@@ -83,13 +68,8 @@ describe('code-build', () => {
       .reply(200);
     wrapped.run({
       detail: {
+        'build-id': 'build-1',
         'build-status': 'SUCCEEDED',
-        'project-name': 'project-1',
-        'additional-information': {
-          logs: {
-            'stream-name': 'build-1',
-          },
-        },
       },
     }).then(() => {
       slack.done();
@@ -100,19 +80,14 @@ describe('code-build', () => {
     const slack = nock(process.env.slack_url).persist()
       .post(
         '',
-        body => body.attachments[0].title_link === 'https://console.aws.amazon.com/codebuild/home?region=region-1#/builds/project-1:build-1/view/new',
+        body => body.attachments[0].title_link === 'https://console.aws.amazon.com/codebuild/home?region=region-1#/builds/my-sample-project:8745a7a9-c340-456a-9166-edf953571bEX/view/new',
       )
       .reply(200);
     wrapped.run({
-        region: "region-1",
+      region: 'region-1',
       detail: {
+        'build-id': 'arn:aws:codebuild:us-west-2:123456789012:build/my-sample-project:8745a7a9-c340-456a-9166-edf953571bEX',
         'build-status': 'status-1',
-        'project-name': 'project-1',
-        'additional-information': {
-          logs: {
-            'stream-name': 'build-1',
-          },
-        },
       },
     }).then(() => {
       slack.done();
