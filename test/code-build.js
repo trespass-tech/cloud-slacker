@@ -13,18 +13,19 @@ describe('code-build', () => {
   });
 
   it('Sends a text message to Slack', () => {
+    nock.cleanAll();
     const slack = nock(process.env.slack_url).persist()
       .post('', body => body).reply(200);
     wrapped.run({
       detail: {
-        'status-code': 'status-1',
+        'build-status': 'status-1',
       },
     }).then(() => {
       slack.done();
-      nock.cleanAll();
     });
   });
   it('Sends build status in the subject line', () => {
+    nock.cleanAll();
     const slack = nock(process.env.slack_url).persist()
       .post(
         '',
@@ -33,23 +34,22 @@ describe('code-build', () => {
       .reply(200);
     wrapped.run({
       detail: {
-        'status-code': 'status-1',
+        'build-status': 'status-1',
       },
     }).then(() => {
       slack.done();
-      slack.persist(false);
     });
   });
   it('Responds with success', () => {
-    const slack = nock(process.env.slack_url).persist()
+    nock.cleanAll();
+    nock(process.env.slack_url).persist()
       .post('', body => body).reply(200);
     wrapped.run({
       detail: {
-        'status-code': 'status-1',
+        'build-status': 'status-1',
       },
     }).then((response) => {
       expect(response.message).to.containIgnoreCase('success');
-      slack.persist(false);
     });
   });
 });

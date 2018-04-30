@@ -8,7 +8,7 @@ module.exports.notify = (event, context, callback) => {
     uri: process.env.slack_url,
     body: {
       attachments: [{
-        title: `Build ${event.detail['status-code']}`,
+        title: `Build ${event.detail['build-status']}`,
       }],
     },
     json: true,
