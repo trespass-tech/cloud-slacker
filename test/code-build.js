@@ -52,7 +52,7 @@ describe('code-build', () => {
       .reply(200);
     wrapped.run({
       detail: {
-        'build-status': 'SUCCESSFUL',
+        'build-status': 'SUCCEEDED',
       },
     }).then(() => {
       slack.done();
