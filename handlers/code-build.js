@@ -1,8 +1,6 @@
 const request = require('request-promise');
 
 module.exports.notify = (event, context, callback) => {
-  console.log(event);
-
   let color;
 
   switch (event.detail['build-status']) {
@@ -20,6 +18,7 @@ module.exports.notify = (event, context, callback) => {
       attachments: [{
         color,
         title: `Build ${event.detail['build-status']}`,
+        title_link: `https://console.aws.amazon.com/codebuild/home?region=${event.region}#/builds/${event.detail['project-name']}:${event.detail['additional-information'].logs['stream-name']}/view/new`,
       }],
     },
     json: true,
