@@ -112,4 +112,8 @@ describe('code-build', () => {
       slack.done();
     });
   });
+
+  it('Always fails', () => {
+    expect(false).to.be.true;
+  });
 });
