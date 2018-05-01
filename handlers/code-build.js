@@ -7,6 +7,9 @@ module.exports.notify = (event, context, callback) => {
     case 'SUCCEEDED':
       color = 'good';
       break;
+    case 'FAILED':
+      color = 'danger';
+      break;
     default:
       color = '';
   }
