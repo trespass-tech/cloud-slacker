@@ -58,23 +58,42 @@ describe('code-build', () => {
     });
   });
 
-  it('Colours message "green" when build successful ', () => {
-    nock.cleanAll();
-    const slack = nock(process.env.slack_url).persist()
-      .post(
-        '',
-        body => body.attachments[0].color === 'good',
-      )
-      .reply(200);
-    wrapped.run({
-      detail: {
-        'build-id': 'build-1',
-        'build-status': 'SUCCEEDED',
-      },
-    }).then(() => {
-      slack.done();
+    it('Colours message "green" when build successful ', () => {
+        nock.cleanAll();
+        const slack = nock(process.env.slack_url).persist()
+            .post(
+                '',
+                body => body.attachments[0].color === 'good',
+            )
+            .reply(200);
+        wrapped.run({
+            detail: {
+                'build-id': 'build-1',
+                'build-status': 'SUCCEEDED',
+            },
+        }).then(() => {
+            slack.done();
+        });
     });
-  });
+
+    it('Colours message "red" when build fails ', () => {
+        nock.cleanAll();
+        const slack = nock(process.env.slack_url).persist()
+            .post(
+                '',
+                body => body.attachments[0].color === 'danger',
+            )
+            .reply(200);
+        wrapped.run({
+            detail: {
+                'build-id': 'build-1',
+                'build-status': 'FAILED',
+            },
+        }).then(() => {
+            slack.done();
+        });
+    });
+
   it('Links title to CodeBuild console to see logs', () => {
     nock.cleanAll();
     const slack = nock(process.env.slack_url).persist()
