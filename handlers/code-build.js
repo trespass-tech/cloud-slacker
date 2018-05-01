@@ -12,6 +12,18 @@ module.exports.notify = (event, context, callback) => {
       break;
     default:
       color = '';
+      break;
+  }
+
+  let buildStatus;
+
+  switch (event.detail['build-status']) {
+    case 'IN_PROGRESS':
+      buildStatus = 'STARTED';
+      break;
+    default:
+      buildStatus = event.detail['build-status'];
+      break;
   }
 
   const buildArn = event.detail['build-id'];
@@ -23,7 +35,7 @@ module.exports.notify = (event, context, callback) => {
     body: {
       attachments: [{
         color,
-        title: `Build ${event.detail['project-name']} ${event.detail['build-status']}`,
+        title: `Build ${event.detail['project-name']} ${buildStatus}`,
         title_link: `https://console.aws.amazon.com/codebuild/home?region=${event.region}#/builds/${buildId}/view/new`,
       }],
     },

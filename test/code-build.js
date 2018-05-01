@@ -58,6 +58,24 @@ describe('code-build', () => {
     });
   });
 
+  it('Says build STARTED when status is in progress', () => {
+    nock.cleanAll();
+    const slack = nock(process.env.slack_url).persist()
+      .post(
+        '',
+        body => body.attachments[0].title.includes('STARTED'),
+      )
+      .reply(200);
+    wrapped.run({
+      detail: {
+        'build-id': 'build-1',
+        'build-status': 'IN_PROGRESS',
+      },
+    }).then(() => {
+      slack.done();
+    });
+  });
+
   it('Includes build project name in the message title', () => {
     nock.cleanAll();
     const slack = nock(process.env.slack_url).persist()
