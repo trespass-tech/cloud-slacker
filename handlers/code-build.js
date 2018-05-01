@@ -14,6 +14,7 @@ module.exports.notify = (event, context, callback) => {
       color = '';
   }
 
+  
   const buildArn = event.detail['build-id'];
   const buildId = buildArn.substring(buildArn.indexOf(':build/') + 7);
 
