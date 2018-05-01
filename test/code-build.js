@@ -26,6 +26,7 @@ describe('code-build', () => {
       expect(response.message).to.containIgnoreCase('success');
     });
   });
+
   it('Sends a text message to Slack', () => {
     nock.cleanAll();
     const slack = nock(process.env.slack_url).persist()
@@ -113,7 +114,6 @@ describe('code-build', () => {
     });
   });
 
-  
   it('Colours message "green" when build successful ', () => {
     nock.cleanAll();
     const slack = nock(process.env.slack_url).persist()
