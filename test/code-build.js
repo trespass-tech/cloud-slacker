@@ -58,6 +58,25 @@ describe('code-build', () => {
     });
   });
 
+  it('Includes build project name in the message title', () => {
+    nock.cleanAll();
+    const slack = nock(process.env.slack_url).persist()
+      .post(
+        '',
+        body => body.attachments[0].title.includes('project-1'),
+      )
+      .reply(200);
+    wrapped.run({
+      detail: {
+        'build-id': 'build-1',
+        'build-status': 'status-1',
+        'project-name': 'project-1',
+      },
+    }).then(() => {
+      slack.done();
+    });
+  });
+
   it('Colours message "green" when build successful ', () => {
     nock.cleanAll();
     const slack = nock(process.env.slack_url).persist()

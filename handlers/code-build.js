@@ -14,7 +14,6 @@ module.exports.notify = (event, context, callback) => {
       color = '';
   }
 
-  
   const buildArn = event.detail['build-id'];
   const buildId = buildArn.substring(buildArn.indexOf(':build/') + 7);
 
@@ -24,7 +23,7 @@ module.exports.notify = (event, context, callback) => {
     body: {
       attachments: [{
         color,
-        title: `Build ${event.detail['build-status']}`,
+        title: `${event.detail['project-name']} - build ${event.detail['build-status']}`,
         title_link: `https://console.aws.amazon.com/codebuild/home?region=${event.region}#/builds/${buildId}/view/new`,
       }],
     },
