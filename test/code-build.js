@@ -76,12 +76,12 @@ describe('code-build', () => {
     });
   });
 
-  it('Includes build project name in the message title', () => {
+  it('Sends build name as Author', () => {
     nock.cleanAll();
     const slack = nock(process.env.slack_url).persist()
       .post(
         '',
-        body => body.attachments[0].title.includes('project-1'),
+        body => body.attachments[0].author_name.includes('project-1'),
       )
       .reply(200);
     wrapped.run({

@@ -35,7 +35,8 @@ module.exports.notify = (event, context, callback) => {
     body: {
       attachments: [{
         color,
-        title: `Build ${event.detail['project-name']} ${buildStatus}`,
+        author_name: event.detail['project-name'],
+        title: `Build ${buildStatus}`,
         title_link: `https://console.aws.amazon.com/codebuild/home?region=${event.region}#/builds/${buildId}/view/new`,
       }],
     },
