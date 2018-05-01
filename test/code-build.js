@@ -95,6 +95,24 @@ describe('code-build', () => {
     });
   });
 
+  it('Colours message "blue" when build starts ', () => {
+    nock.cleanAll();
+    const slack = nock(process.env.slack_url).persist()
+      .post(
+        '',
+        body => body.attachments[0].color === '#16b',
+      )
+      .reply(200);
+    wrapped.run({
+      detail: {
+        'build-id': 'build-1',
+        'build-status': 'IN_PROGRESS',
+      },
+    }).then(() => {
+      slack.done();
+    });
+  });
+
   it('Colours message "green" when build successful ', () => {
     nock.cleanAll();
     const slack = nock(process.env.slack_url).persist()

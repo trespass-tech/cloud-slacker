@@ -4,6 +4,9 @@ module.exports.notify = (event, context, callback) => {
   let color;
 
   switch (event.detail['build-status']) {
+    case 'IN_PROGRESS':
+      color = '#16b';
+      break;
     case 'SUCCEEDED':
       color = 'good';
       break;
