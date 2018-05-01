@@ -21,6 +21,9 @@ describe('code-build', () => {
       detail: {
         'build-id': 'build-1',
         'build-status': 'status-1',
+        'additional-information': {
+          'source-version': 'version-1',
+        },
       },
     }).then((response) => {
       expect(response.message).to.containIgnoreCase('success');
@@ -35,6 +38,9 @@ describe('code-build', () => {
       detail: {
         'build-id': 'build-1',
         'build-status': 'status-1',
+        'additional-information': {
+          'source-version': 'version-1',
+        },
       },
     }).then(() => {
       slack.done();
@@ -53,6 +59,9 @@ describe('code-build', () => {
       detail: {
         'build-id': 'build-1',
         'build-status': 'status-1',
+        'additional-information': {
+          'source-version': 'version-1',
+        },
       },
     }).then(() => {
       slack.done();
@@ -71,6 +80,9 @@ describe('code-build', () => {
       detail: {
         'build-id': 'build-1',
         'build-status': 'IN_PROGRESS',
+        'additional-information': {
+          'source-version': 'version-1',
+        },
       },
     }).then(() => {
       slack.done();
@@ -90,6 +102,9 @@ describe('code-build', () => {
         'build-id': 'build-1',
         'build-status': 'status-1',
         'project-name': 'project-1',
+        'additional-information': {
+          'source-version': 'version-1',
+        },
       },
     }).then(() => {
       slack.done();
@@ -108,6 +123,9 @@ describe('code-build', () => {
       detail: {
         'build-id': 'build-1',
         'build-status': 'IN_PROGRESS',
+        'additional-information': {
+          'source-version': 'version-1',
+        },
       },
     }).then(() => {
       slack.done();
@@ -126,6 +144,9 @@ describe('code-build', () => {
       detail: {
         'build-id': 'build-1',
         'build-status': 'SUCCEEDED',
+        'additional-information': {
+          'source-version': 'version-1',
+        },
       },
     }).then(() => {
       slack.done();
@@ -144,6 +165,9 @@ describe('code-build', () => {
       detail: {
         'build-id': 'build-1',
         'build-status': 'FAILED',
+        'additional-information': {
+          'source-version': 'version-1',
+        },
       },
     }).then(() => {
       slack.done();
@@ -163,6 +187,30 @@ describe('code-build', () => {
       detail: {
         'build-id': 'arn:aws:codebuild:us-west-2:123456789012:build/my-sample-project:8745a7a9-c340-456a-9166-edf953571bEX',
         'build-status': 'status-1',
+        'additional-information': {
+          'source-version': 'version-1',
+        },
+      },
+    }).then(() => {
+      slack.done();
+    });
+  });
+  it('Displays source version in footer', () => {
+    nock.cleanAll();
+    const slack = nock(process.env.slack_url).persist()
+      .post(
+        '',
+        body => body.attachments[0].footer.includes('version-1'),
+      )
+      .reply(200);
+    wrapped.run({
+      region: 'region-1',
+      detail: {
+        'build-id': 'build-1',
+        'build-status': 'status-1',
+        'additional-information': {
+          'source-version': 'version-1',
+        },
       },
     }).then(() => {
       slack.done();

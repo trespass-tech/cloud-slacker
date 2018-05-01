@@ -41,6 +41,7 @@ module.exports.notify = (event, context, callback) => {
         author_name: event.detail['project-name'],
         title: `Build ${buildStatus}`,
         title_link: `https://console.aws.amazon.com/codebuild/home?region=${event.region}#/builds/${buildId}/view/new`,
+        footer: `Source: ${event.detail['additional-information']['source-version']}`,
       }],
     },
     json: true,
