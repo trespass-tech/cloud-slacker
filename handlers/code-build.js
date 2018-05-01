@@ -1,14 +1,28 @@
 const request = require('request-promise');
 
 module.exports.notify = (event, context, callback) => {
-  console.log(event);
-  console.log(`Slack: ${process.env.slack_url}`);
+  let color;
+
+  switch (event.detail['build-status']) {
+    case 'SUCCEEDED':
+      color = 'good';
+      break;
+    default:
+      color = '';
+  }
+
+  const buildArn = event.detail['build-id'];
+  const buildId = buildArn.substring(buildArn.indexOf(':build/') + 7);
 
   request({
     method: 'POST',
     uri: process.env.slack_url,
     body: {
-      text: 'This is a line of text.\nAnd this is another one.',
+      attachments: [{
+        color,
+        title: `Build ${event.detail['build-status']}`,
+        title_link: `https://console.aws.amazon.com/codebuild/home?region=${event.region}#/builds/${buildId}/view/new`,
+      }],
     },
     json: true,
   }).then(() => {
