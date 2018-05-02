@@ -20,10 +20,6 @@ Follow [installation instructions](https://docs.aws.amazon.com/cli/latest/usergu
 
 ```
 pip install awscli --upgrade --user
-```
-Follow installation wizard steps.
-
-```
 aws configure
 ```
 Follow configuration wizard steps.
