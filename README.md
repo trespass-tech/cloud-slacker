@@ -19,6 +19,7 @@ aws configure
 ```
 npm install -g serverless
 git clone https://github.com/trespass-tech/slack-my-amazon.git
+cd slack-my-amazon
 npm install
 npm run lint
 npm test
@@ -48,11 +49,8 @@ git clone https://github.com/trespass-tech/slack-my-amazon.git
 
 #### Build the source
 ```
+cd slack-my-amazon
 npm install
-```
-
-#### Lint and test
-```
 npm run lint
 npm test
 ```
