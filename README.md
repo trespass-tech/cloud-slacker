@@ -12,21 +12,21 @@ One click serverless  deployment to get your AWS service events as Slack notific
 
 ## Installation
 ### Install Node.js
-Use official [Node.js 8+](https://nodejs.org/) distribution
+Use official [Node.js 8+](https://nodejs.org/) distribution.
 ### Install and configure AWS CLI
-Follow [installation instructions](https://docs.aws.amazon.com/cli/latest/userguide/installing.html) from AWS
+Follow [installation instructions](https://docs.aws.amazon.com/cli/latest/userguide/installing.html) from AWS.
 
 &ndash; or &ndash;
 
 ```
 pip install awscli --upgrade --user
 ```
-Follow installation wizard steps
+Follow installation wizard steps.
 
 ```
 aws configure
 ```
-Follow configuration wizard steps
+Follow configuration wizard steps.
 
 ### Set up Slack Incoming WebHooks
 Install and set up Incoming WebHooks from [Slack App Directory](https://slack.com/apps/A0F7XDUAZ-incoming-webhooks)
