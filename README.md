@@ -26,22 +26,15 @@ npm test
 ... then ...
 <pre>sls deploy --region <i>your-aws-region</i> --slack_url <i>https://your-slack-webhooks-url</i></pre>
 
-### Install Node.js
+### Fast way didn't work for me
+
+#### Install Node.js
 Use official [Node.js 8+](https://nodejs.org/) distribution.
-### Install and configure AWS CLI
+#### Install and configure AWS CLI
 Follow [installation instructions](https://docs.aws.amazon.com/cli/latest/userguide/installing.html) from AWS.
 
-&ndash; or &ndash;
-
-```
-pip install awscli --upgrade --user
-aws configure
-```
-
-### Set up Slack Incoming WebHooks
+#### Set up Slack Incoming WebHooks
 Install and set up Incoming WebHooks from [Slack App Directory](https://slack.com/apps/A0F7XDUAZ-incoming-webhooks)
-
-### Clone and compile
 
 #### Install Serverless
 ```
