@@ -14,22 +14,48 @@ One click serverless  deployment to get your AWS service events as Slack notific
 ### Install Node.js
 Use official [Node.js 8+](https://nodejs.org/) distribution
 ### Install and configure AWS CLI
-* Install [from AWS](https://docs.aws.amazon.com/cli/latest/userguide/installing.html)
-* If you have python installed, you can use `pip install awscli --upgrade --user`
-* Run `aws configure` to set up AWS access
+Follow [installation instructions](https://docs.aws.amazon.com/cli/latest/userguide/installing.html) from AWS
+
+&ndash; or &ndash;
+
+```
+pip install awscli --upgrade --user
+```
+Follow installation wizard steps
+
+```
+aws configure
+```
+Follow configuration wizard steps
+
 ### Set up Slack Incoming WebHooks
 Install and set up Incoming WebHooks from [Slack App Directory](https://slack.com/apps/A0F7XDUAZ-incoming-webhooks)
+
 ### One-click
 _Scripting yet to be done_
+
 ### Clone and compile
+
 #### Install Serverless
-* `npm install -g serverless`
+```
+npm install -g serverless
+```
+
 #### Clone from GitHub
-* `git clone https://github.com/trespass-tech/slack-my-amazon.git`
+```
+git clone https://github.com/trespass-tech/slack-my-amazon.git
+```
+
 #### Build the source
-* `npm install`
+```
+npm install
+```
+
 #### Lint and test
-* `npm run lint`
-* `npm test`
+```
+npm run lint
+npm test
+```
+
 #### Deploy
-* `sls deploy --region your-aws-region --slack_url https://your-slack-webhooks-url`
+<pre>sls deploy --region <i>your-aws-region</i> --slack_url <i>https://your-slack-webhooks-url</i></pre>
