@@ -32,4 +32,4 @@ _Scripting yet to be done_
 * `npm run lint`
 * `npm test`
 #### Deploy
-* `sls deploy --slack_url https://your-slack-webhooks-url`
+* `sls deploy --region your-aws-region --slack_url https://your-slack-webhooks-url`
