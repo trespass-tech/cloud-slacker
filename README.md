@@ -15,7 +15,7 @@ Delivers AWS CloudWatch events to your Slack channels.
 pip install awscli --upgrade --user
 aws configure
 ```
-... then ...
+then
 ```
 npm install -g serverless
 git clone https://github.com/trespass-tech/slack-my-amazon.git
@@ -24,7 +24,7 @@ npm install
 npm run lint
 npm test
 ```
-... then ...
+then
 <pre>sls deploy --region <i>your-aws-region</i> --slack_url <i>https://your-slack-webhooks-url</i></pre>
 
 ### Fast way didn't work for me
