@@ -4,8 +4,31 @@
 
 One click serverless  deployment to get your AWS service events as Slack notifications.
 
+## Work in progress
+**Contributors welcome!**
+
 ## Integrates Slack with:
 - AWS CodeCommit
 
-## Work in progress
-**Contributors welcome!**
+## Installation
+### Install Node.js
+Use official [Node.js 8+](https://nodejs.org/) distribution
+### Install and configure AWS CLI
+* download...................
+* aws configure
+### Set up Slack Incoming WebHooks
+Install and set up Incoming WebHooks from [Slack App Directory](https://slack.com/apps/A0F7XDUAZ-incoming-webhooks)
+### One-click
+_Scripting yet to be done_
+### Clone and compile
+#### Install Serverless
+* npm install -g serverless
+#### Clone from GitHub
+* git clone ..............
+#### Build the source
+* npm install
+#### Lint and test
+* npm run lint
+* npm test
+#### Deploy
+* sls deploy --slack_url _https://your-slack-webhooks-url_
