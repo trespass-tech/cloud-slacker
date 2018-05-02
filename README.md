@@ -22,7 +22,6 @@ Follow [installation instructions](https://docs.aws.amazon.com/cli/latest/usergu
 pip install awscli --upgrade --user
 aws configure
 ```
-Follow configuration wizard steps.
 
 ### Set up Slack Incoming WebHooks
 Install and set up Incoming WebHooks from [Slack App Directory](https://slack.com/apps/A0F7XDUAZ-incoming-webhooks)
