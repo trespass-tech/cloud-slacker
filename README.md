@@ -9,6 +9,8 @@ Integrates AWS services and applications with Slack by streaming CloudWatch even
 - AWS CodePipeline coming soon
   - Contributors welcome!
 
+![Notifications Samples](https://trespass.technology/img/notifications.png)
+
 ## Installation
 ### tl;dr
 ```
