@@ -5,7 +5,7 @@
 Integrates AWS services and applications with Slack by streaming CloudWatch Events into Slack WebHooks.
 
 **Supported AWS services:**
-- AWS CodeCommit
+- AWS CodeBuild
 - AWS CodePipeline coming soon
   - Contributors welcome!
 
