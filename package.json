@@ -1,5 +1,5 @@
 {
-  "name": "slack-my-amazon",
+  "name": "cloud-slacker",
   "version": "1.0.0",
   "description": "Slack integration for AWS service event notifications",
   "main": "handler.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/trespass-tech/slack-my-amazon.git"
+    "url": "git+https://github.com/trespass-tech/cloud-slacker.git"
   },
   "keywords": [
     "aws",
@@ -23,9 +23,9 @@
   "author": "Dmitry Livchak",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/trespass-tech/slack-my-amazon/issues"
+    "url": "https://github.com/trespass-tech/cloud-slacker/issues"
   },
-  "homepage": "https://github.com/trespass-tech/slack-my-amazon#readme",
+  "homepage": "https://github.com/trespass-tech/cloud-slacker#readme",
   "devDependencies": {
     "chai-string": "^1.4.0",
     "eslint": "^4.9.0",
