@@ -1,4 +1,4 @@
-service: slack-my-amazon
+service: cloud-slacker
 provider:
   name: aws
   runtime: nodejs8.10
