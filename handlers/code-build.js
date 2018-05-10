@@ -32,7 +32,6 @@ module.exports.notify = (event, context, callback) => {
   const buildArn = event.detail['build-id'];
   const buildId = buildArn.substring(buildArn.indexOf(':build/') + 7);
 
-  
   request({
     method: 'POST',
     uri: process.env.slack_url,
